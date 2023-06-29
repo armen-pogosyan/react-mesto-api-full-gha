@@ -1,3 +1,5 @@
+const BASE_URL = 'http://education-project.nomoreparties.sbs/api';
+
 class Api {
   constructor(token, cohort) {
     this._token = token;
@@ -25,7 +27,7 @@ class Api {
     else {
       methodRequest ='DELETE'
     }  
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohort}/cards/${cardId}/likes`, {
+    return fetch(`${BASE_URL}/cards/${cardId}/likes`, {
       method: methodRequest, 
       headers: this._getHeaders()
     })
@@ -34,7 +36,7 @@ class Api {
 
 //добавление новой карточки
   addNewCard(data) {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohort}/cards`, {
+    return fetch(`${BASE_URL}/cards`, {
       method: 'POST',
       headers: this._getHeaders(),
       body: JSON.stringify({
@@ -48,7 +50,7 @@ class Api {
 
   //УдалениеКарточки
   deleteCard(idCard) {
-    return fetch(`https://nomoreparties.co/v1/${this._cohort}/cards/${idCard}`, {
+    return fetch(`${BASE_URL}/cards/${idCard}`, {
       method: 'DELETE',
       headers: this._getHeaders()
       })
@@ -56,14 +58,14 @@ class Api {
   }
 //Получение начального массива карт
   getInitialCards() {
-    return fetch(`https://nomoreparties.co/v1/${this._cohort}/cards`, {
+    return fetch(`${BASE_URL}/cards`, {
       headers: this._getHeaders()
       })
     .then(this._getJson)
 }
 //Загрузка информации о пользователе
   getCurrentUser() {
-    return fetch(`https://nomoreparties.co/v1/${this._cohort}/users/me`, {
+    return fetch(`${BASE_URL}/users/me`, {
       headers: this._getHeaders()
       })
       .then(this._getJson)   
@@ -71,7 +73,7 @@ class Api {
 
 //Обновление информации о пользователе на сервере
 setUserInfo(data) {
-  return fetch(`https://mesto.nomoreparties.co/v1/${this._cohort}/users/me`, {
+  return fetch(`${BASE_URL}/users/me`, {
      method: 'PATCH',
      headers: this._getHeaders(),
      body: JSON.stringify({
@@ -84,7 +86,7 @@ setUserInfo(data) {
 
 //Обновление аватара
 setUserAvatar(data) {
-  return fetch(`https://mesto.nomoreparties.co/v1/${this._cohort}/users/me/avatar`,{
+  return fetch(`${BASE_URL}/users/me/avatar`,{
     method: 'PATCH',
     headers: this._getHeaders(),
     body: JSON.stringify({
