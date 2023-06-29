@@ -108,7 +108,7 @@ function App() {
   }
 
 React.useEffect(() => {
-  if (!localStorage.getItem('jwt')) {
+  if (localStorage.getItem('jwt')) {
     Promise.all([
       api.getInitialCards(),
       api.getCurrentUser()
