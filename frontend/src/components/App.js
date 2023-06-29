@@ -99,7 +99,6 @@ function App() {
       setIsLoading(false)
     } 
     );
-
   } ,[loggedIn])
 
   function signOut(){ //Выход из системы
@@ -109,17 +108,19 @@ function App() {
   }
 
 React.useEffect(() => {
-  Promise.all([
-    api.getInitialCards(),
-    api.getCurrentUser()
-  ])
-  .then(([result, user]) => {
-    getCurrentUser(user)
-    setCards(result)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+  if (!localStorage.getItem('jwt')) {
+    Promise.all([
+      api.getInitialCards(),
+      api.getCurrentUser()
+    ])
+    .then(([result, user]) => {
+      getCurrentUser(user)
+      setCards(result)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
 }, []);
 
   function handleCardLike(card) {

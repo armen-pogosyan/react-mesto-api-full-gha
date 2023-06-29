@@ -1,14 +1,11 @@
-const BASE_URL = 'http://education-project.nomoreparties.sbs/api';
-
 class Api {
-  constructor(token, cohort) {
-    this._token = token;
-    this._cohort = cohort;
+  constructor(BASE_URL) {
+    this.BASE_URL = BASE_URL
   }
   
   _getHeaders() {
     return {
-      authorization: this._token,
+      authorization: localStorage.getItem("jwt"),
       'Content-Type': 'application/json'
     }   
   }
@@ -27,7 +24,7 @@ class Api {
     else {
       methodRequest ='DELETE'
     }  
-    return fetch(`${BASE_URL}/cards/${cardId}/likes`, {
+    return fetch(`${this.BASE_URL}/cards/${cardId}/likes`, {
       method: methodRequest, 
       headers: this._getHeaders()
     })
@@ -36,7 +33,7 @@ class Api {
 
 //добавление новой карточки
   addNewCard(data) {
-    return fetch(`${BASE_URL}/cards`, {
+    return fetch(`${this.BASE_URL}/cards`, {
       method: 'POST',
       headers: this._getHeaders(),
       body: JSON.stringify({
@@ -50,7 +47,7 @@ class Api {
 
   //УдалениеКарточки
   deleteCard(idCard) {
-    return fetch(`${BASE_URL}/cards/${idCard}`, {
+    return fetch(`${this.BASE_URL}/cards/${idCard}`, {
       method: 'DELETE',
       headers: this._getHeaders()
       })
@@ -58,14 +55,14 @@ class Api {
   }
 //Получение начального массива карт
   getInitialCards() {
-    return fetch(`${BASE_URL}/cards`, {
+    return fetch(`${this.BASE_URL}/cards`, {
       headers: this._getHeaders()
       })
     .then(this._getJson)
 }
 //Загрузка информации о пользователе
   getCurrentUser() {
-    return fetch(`${BASE_URL}/users/me`, {
+    return fetch(`${this.BASE_URL}/users/me`, {
       headers: this._getHeaders()
       })
       .then(this._getJson)   
@@ -73,7 +70,7 @@ class Api {
 
 //Обновление информации о пользователе на сервере
 setUserInfo(data) {
-  return fetch(`${BASE_URL}/users/me`, {
+  return fetch(`${this.BASE_URL}/users/me`, {
      method: 'PATCH',
      headers: this._getHeaders(),
      body: JSON.stringify({
@@ -86,7 +83,7 @@ setUserInfo(data) {
 
 //Обновление аватара
 setUserAvatar(data) {
-  return fetch(`${BASE_URL}/users/me/avatar`,{
+  return fetch(`${this.BASE_URL}/users/me/avatar`,{
     method: 'PATCH',
     headers: this._getHeaders(),
     body: JSON.stringify({
@@ -96,4 +93,4 @@ setUserAvatar(data) {
   .then(this._getJson)
   }
 }
-export const api = new Api('c7bb59bd-fa7f-49d9-ae13-0f28841d7131', 'cohort-61');
+export const api = new Api('http://education-project.nomoreparties.sbs/api');
