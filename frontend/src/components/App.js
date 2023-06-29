@@ -114,9 +114,7 @@ React.useEffect(() => {
       api.getCurrentUser()
     ])
     .then(([result, user]) => {
-      getCurrentUser(user)
-      console.log(result)
-      setCards(result)
+      setCards(result.data)
     })
     .catch(err => {
       console.log(err)
