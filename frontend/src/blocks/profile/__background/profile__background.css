@@ -1,0 +1,5 @@
+.profile__background {
+  z-index: 2;
+  height: 120px;
+  grid-area: body;
+}

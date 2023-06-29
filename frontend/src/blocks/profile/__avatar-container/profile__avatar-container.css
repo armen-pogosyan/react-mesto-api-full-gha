@@ -1,0 +1,17 @@
+.profile__avatar-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+  "body";
+  align-self: center;
+  width: 120px;
+}
+
+.profile__avatar-container:hover .background{
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.profile__avatar-container:hover .profile__edit-avatar {
+  visibility: visible;
+}

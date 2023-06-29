@@ -1,0 +1,14 @@
+.popup__content_view_img {
+  max-width: 75vw;
+  margin: auto;
+  padding-left: 0;
+  border-radius: 0;
+  object-fit: cover;
+  justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .popup__content_view_img {
+    margin: 123px auto 0 auto;
+  }
+}

@@ -1,0 +1,12 @@
+.profile__container{
+  display: flex;
+  padding-top: 24px;
+  max-width: calc(100vw - 38px);
+}
+
+@media screen and (max-width: 680px) {
+  .profile__container {
+    max-width: calc(100vw - 38px);
+    justify-content: center;
+  }
+}

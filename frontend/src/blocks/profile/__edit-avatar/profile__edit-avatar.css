@@ -1,0 +1,11 @@
+.profile__edit-avatar {
+  visibility: hidden;
+  width: 26px;
+  height: 26px;
+  margin: auto auto;
+  background-image: url(../../../images/editAvatar.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  grid-area: body;
+  z-index: 3;
+}

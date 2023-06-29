@@ -1,0 +1,10 @@
+.popup__tooltip-label {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  padding-right: 36px;
+  padding-bottom: 60px;
+  margin: 0;
+}
