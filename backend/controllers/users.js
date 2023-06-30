@@ -6,7 +6,15 @@ const NotFoundError = require('../errors/NotFoundError'); // 404
 const BadRequestError = require('../errors/BadRequestError'); // 400
 const ConflictError = require('../errors/ConflictError'); // 409
 
+const allowedCors = [
+  'https://education-project.nomoreparties.sbs',
+];
+
 const getUsers = (req, res, next) => {
+  const { origin } = req.headers;
+  if (allowedCors.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
   User.find({})
     .then((users) => {
       res.send(users);
@@ -15,6 +23,10 @@ const getUsers = (req, res, next) => {
 };
 
 const getUser = (req, res, next) => {
+  const { origin } = req.headers;
+  if (allowedCors.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
   User.findById(req.params.userId)
     .then((user) => {
       if (user === null) {
@@ -31,6 +43,10 @@ const getUser = (req, res, next) => {
 };
 
 const createUser = (req, res, next) => {
+  const { origin } = req.headers;
+  if (allowedCors.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
   const {
     name, about, avatar, email, password,
   } = req.body;
@@ -58,6 +74,10 @@ const createUser = (req, res, next) => {
 };
 
 const updateUser = (req, res, next) => {
+  const { origin } = req.headers;
+  if (allowedCors.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
   const { name, about } = req.body;
   User.findByIdAndUpdate(req.user._id, {
     name,
@@ -81,6 +101,10 @@ const updateUser = (req, res, next) => {
 };
 
 const updateAvatar = (req, res, next) => {
+  const { origin } = req.headers;
+  if (allowedCors.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
   const { avatar } = req.body;
   User.findByIdAndUpdate(req.user._id, {
     avatar,
@@ -103,6 +127,10 @@ const updateAvatar = (req, res, next) => {
 };
 
 const login = (req, res, next) => {
+  const { origin } = req.headers;
+  if (allowedCors.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
   const { email, password } = req.body;
   User.findUserByCredentials(email, password)
     .then((user) => {
@@ -115,6 +143,10 @@ const login = (req, res, next) => {
 };
 
 const currentUser = (req, res, next) => {
+  const { origin } = req.headers;
+  if (allowedCors.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
   User.findById(req.user._id)
     .then((user) => {
       if (user === null) {
