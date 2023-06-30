@@ -42,7 +42,7 @@ function App() {
   function registerUser({email, password}) {
     auth.register(password, email)
     .then(() => {
-      navigate('/sign-in', {replace: true})
+      navigate('/signin', {replace: true})
       setInfoTooltipData({
         isInfoTooltip:true,
         imgSrc: successfullyImg,
@@ -104,7 +104,7 @@ function App() {
   function signOut(){ //Выход из системы
     localStorage.removeItem('jwt');
     setLoggedIn(false)
-    navigate("/sign-in", {replace: true})
+    navigate("/signin", {replace: true})
   }
 
 React.useEffect(() => {

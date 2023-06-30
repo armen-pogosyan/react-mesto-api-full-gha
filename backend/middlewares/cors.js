@@ -1,5 +1,6 @@
 const allowedCors = [
   'https://education-project.nomoreparties.sbs',
+  'http://education-project.nomoreparties.sbs',
 ];
 
 // eslint-disable-next-line consistent-return
