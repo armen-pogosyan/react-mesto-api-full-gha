@@ -1,4 +1,4 @@
-const BASE_URL = 'http://api.education-project.nomoreparties.sbs';
+const BASE_URL = 'https://api.education-project.nomoreparties.sbs';
 
 const getJson = (res)=>{
   if (res.ok) {
