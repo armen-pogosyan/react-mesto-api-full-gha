@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.20.230
+IP 51.250.20.230
 
 Frontend https://education-project.nomoreparties.sbs
 

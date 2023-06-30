@@ -225,8 +225,8 @@ React.useEffect(() => {
       <CurrentUserContext.Provider value={currentUser}>
       <CardsContext.Provider value={cards}>
       <Routes>
-        <Route path="/sign-in" element={<Login loggedIn={loggedIn}loginUser={loginUser}/>} />
-        <Route path="/sign-up" element={<Register loggedIn={loggedIn} registerUser={registerUser}/>} />
+        <Route path="/signin" element={<Login loggedIn={loggedIn}loginUser={loginUser}/>} />
+        <Route path="/signup" element={<Register loggedIn={loggedIn} registerUser={registerUser}/>} />
         <Route path="/" element={<ProtectedRouteElement element={Main}
             onEditProfile={handleEditProfileClick}
             onAddPlace={handleAddPlaceClick}
