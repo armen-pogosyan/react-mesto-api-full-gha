@@ -89,7 +89,7 @@ function App() {
       if (res){
         setLoggedIn(true);
         navigate("/", {replace: true})
-        setEmail(res.data.email)
+        setEmail(res.email)
       }
     })
     .catch(err => {
