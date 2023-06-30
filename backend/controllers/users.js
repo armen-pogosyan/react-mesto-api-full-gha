@@ -8,7 +8,7 @@ const ConflictError = require('../errors/ConflictError'); // 409
 const getUsers = (req, res, next) => {
   User.find({})
     .then((users) => {
-      res.send({ data: users });
+      res.send(users);
     })
     .catch(next);
 };
@@ -20,7 +20,7 @@ const getUser = (req, res, next) => {
         next(new NotFoundError('Запрашиваемый пользователь не найден'));
         return;
       }
-      res.send({ data: user });
+      res.send(user);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -70,7 +70,7 @@ const updateUser = (req, res, next) => {
         next(new NotFoundError('Запрашиваемый пользователь не найден'));
         return;
       }
-      res.send({ data: user });
+      res.send(user);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -92,7 +92,7 @@ const updateAvatar = (req, res, next) => {
         next(new NotFoundError('Запрашиваемый пользователь не найден'));
         return;
       }
-      res.send({ data: user });
+      res.send(user);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {

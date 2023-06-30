@@ -15,7 +15,7 @@ const createCard = (req, res, next) => {
   const { name, link } = req.body;
   const userId = req.user._id;
   Card.create({ name, link, owner: userId })
-    .then((card) => res.send({ data: card }))
+    .then((card) => res.send(card))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError(err.message));
@@ -33,7 +33,7 @@ const deleteCard = (req, res, next) => {
       if (card.owner.toString() === req.user._id) {
         Card.findByIdAndRemove(req.params.cardId)
           .then((cardDelete) => {
-            res.send({ data: cardDelete });
+            res.send(cardDelete);
           })
           .catch((err) => {
             if (err.name === 'CastError') {
@@ -58,7 +58,7 @@ const likeCard = (req, res, next) => {
         next(new NotFoundError('Карточка с указанным _id не найдена'));
         return;
       }
-      res.send({ data: card });
+      res.send(card);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
