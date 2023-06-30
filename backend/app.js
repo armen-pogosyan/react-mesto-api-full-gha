@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -6,6 +9,7 @@ const { login, createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const { reLink } = require('./utils/constants');
 const NotFoundError = require('./errors/NotFoundError');
+
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT = 3000 } = process.env;
@@ -53,3 +57,11 @@ app.use((err, req, res, next) => {
   next();
 });
 app.listen(PORT);
+
+const crypto = require('crypto'); // экспортируем crypto
+
+const randomString = crypto
+  .randomBytes(16) // сгенерируем случайную последовательность 16 байт (128 бит)
+  .toString('hex'); // приведём её к строке
+
+console.log(randomString);
