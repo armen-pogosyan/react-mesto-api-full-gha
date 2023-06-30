@@ -94,4 +94,4 @@ setUserAvatar(data) {
   .then(this._getJson)
   }
 }
-export const api = new Api('http://education-project.nomoreparties.sbs/api');
+export const api = new Api('http://api.education-project.nomoreparties.sbs');
