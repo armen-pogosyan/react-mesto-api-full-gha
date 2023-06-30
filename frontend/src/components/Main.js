@@ -28,7 +28,7 @@ function Main(props) {
       <section className="elements">
         <ul className="elements-list"> 
             {cards.map(card => {
-              const isOwn = card.owner._id === currentUser._id;
+              const isOwn = card.owner === currentUser._id;
               const isLiked = card.likes.some(i => i === currentUser._id);
               return(<Card key={card._id} card={card} onCardClick={props.onCardClick} isOwn={isOwn} isLiked={isLiked} onCardLike={props.onCardLike} onCardDelete={props.onCardDelete} onConfirm={props.onConfirm}/>)
             })}
