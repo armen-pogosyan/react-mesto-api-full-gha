@@ -11,8 +11,8 @@ function Header(props) {
       <div className="header__user-panel">
         {props.loggedIn && <p className="header__link">{props.email}</p>}
         <button className="header__link-exit" 
-          onClick={props.loggedIn ? props.signOut: (location.pathname ==="/sign-up" ? () => {navigate("/sign-in")}: () => {navigate("/sign-up")} )}>
-          {props.loggedIn ? "Выйти": location.pathname ==="/sign-up" ? "Войти" : "Регистрация"}
+          onClick={props.loggedIn ? props.signOut: (location.pathname ==="/signup" ? () => {navigate("/signin")}: () => {navigate("/signup")} )}>
+          {props.loggedIn ? "Выйти": location.pathname ==="/signup" ? "Войти" : "Регистрация"}
         </button>
       </div>
     </header>
