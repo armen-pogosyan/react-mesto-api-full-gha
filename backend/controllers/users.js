@@ -119,7 +119,7 @@ const currentUser = (req, res, next) => {
       if (user === null) {
         throw new NotFoundError('Не пройдена авторизация');
       }
-      res.send({ data: user });
+      res.send(user);
     })
     .catch(next);
 };
