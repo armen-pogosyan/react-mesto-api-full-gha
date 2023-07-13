@@ -11,6 +11,4 @@
 
 IP 51.250.20.230
 
-Frontend https://education-project.nomoreparties.sbs
-
-Backend https://api.education-project.nomoreparties.sbs
+Backend https://api.diploma-project.nomoredomains.work
